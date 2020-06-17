@@ -3,6 +3,9 @@ author: harupy
 description: Trigger Action by Comment
 
 inputs:
+  token:
+    description: "A GitHub Token"
+    required: true
   pull_number:
     description: "A pull request number"
     required: true

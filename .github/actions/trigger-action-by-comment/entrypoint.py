@@ -13,6 +13,7 @@ def parse_job(comment):
 
 
 def main():
+    TOKEN = get_action_input('token')
     pull_num = get_action_input("pull_number")
     comment = get_action_input("comment")
     job = parse_job(comment)
