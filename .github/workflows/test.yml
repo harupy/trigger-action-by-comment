@@ -17,5 +17,5 @@ jobs:
       - uses: ./.github/actions/trigger-action-by-comment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          pull_number: 100
+          pull_number: 1
           comment: "trigger lint"
