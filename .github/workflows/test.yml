@@ -15,3 +15,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: echo "test"
       - uses: ./.github/actions/trigger-action-by-comment
+        with:
+          pull_number: 100

@@ -2,6 +2,11 @@ name: Trigger Action by Comment
 author: harupy
 description: Trigger Action by Comment
 
+inputs:
+  pull_number:
+    description: "A pull request number"
+    required: true
+
 runs:
   using: "docker"
   image: "Dockerfile"
