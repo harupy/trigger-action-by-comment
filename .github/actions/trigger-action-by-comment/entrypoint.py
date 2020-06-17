@@ -1,3 +1,8 @@
 import requests
 
-print(requests.__version__)
+
+def main():
+    print(requests.__version__)
+
+
+if __name__ == "__main__":
