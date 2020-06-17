@@ -1,5 +1,6 @@
 import os
 import re
+from pprint import pprint
 
 import requests
 
@@ -39,6 +40,8 @@ def main():
             res = requests.post(
                 base_url + f"/check-suites/{suite['id']}/rerequest", headers=headers,
             )
+            pprint(check_runs)
+            pprint(res.json())
             print(res.status_code)
 
 
