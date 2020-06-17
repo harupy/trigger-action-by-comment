@@ -8,6 +8,7 @@ on:
 jobs:
   retrigger:
     runs-on: ubuntu-latest
+    if: ${{ contains(github.event.comment.html_url, '/pull/') }}
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/trigger-action-by-comment
