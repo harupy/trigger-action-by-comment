@@ -41,7 +41,7 @@ def main():
 
     # re-run filtered check-suites
     for suite in filtered:
-        res = requests.get(base_url + f"/{suite['id']}/check-suites", headers=headers,)
+        res = requests.get(base_url + f"/commits/{suite['id']}/check-suites", headers=headers,)
         print(res.status_code)
 
 
