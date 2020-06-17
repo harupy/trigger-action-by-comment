@@ -1,0 +1,7 @@
+name: Trigger Action by Comment
+author: harupy
+description: Trigger Action by Comment
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

@@ -13,3 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "test"
+      - uses: ./github/actions/trigger-action-by-comment
