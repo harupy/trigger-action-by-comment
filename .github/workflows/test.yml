@@ -13,4 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo "test"
+      - uses: ./.github/actions/rerun-workflow-by-comment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pull_number: ${{ github.event.issue.number }}
+          comment: ${{ github.event.comment.body }}
