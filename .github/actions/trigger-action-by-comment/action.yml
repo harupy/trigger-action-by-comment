@@ -1,0 +1,18 @@
+name: Retrigger Action by Comment
+author: harupy
+description: Retrigger Action by Comment
+
+inputs:
+  token:
+    description: "A GitHub Token"
+    required: true
+  pull_number:
+    description: "A pull request number"
+    required: true
+  comment:
+    description: "An issue comment"
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
