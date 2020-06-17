@@ -13,7 +13,6 @@ def get_job_from_comment(comment):
 
 
 def main():
-
     token = get_action_input("token")
     pull_num = get_action_input("pull_number")
     comment = get_action_input("comment")
@@ -27,11 +26,11 @@ def main():
 
     pr = requests.get(base_url + f"/pulls/{pull_num}")
     pr_sha = pr.json()["head"]["sha"]
-
     suites = requests.get(
         base_url + "/commits/" + pr_sha + "/check-suites", headers=headers,
     )
 
+    # filter check-suites by job
     filtered = []
     for suite in suites.json()["check_suites"]:
         check_runs = requests.get(
@@ -40,7 +39,10 @@ def main():
         if any(cr["name"] == job for cr in check_runs.json()["check_runs"]):
             filtered.append(suite)
 
-    print(filtered)
+    # re-run filtered check-suites
+    for suite in filtered:
+        res = requests.get(base_url + f"/{suite['id']}/check-suites", headers=headers,)
+        print(res.status_code)
 
 
 if __name__ == "__main__":
