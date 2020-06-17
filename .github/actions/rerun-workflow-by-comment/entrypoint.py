@@ -36,8 +36,13 @@ def main():
     runs = requests.get(base_url + "/actions/runs", params=params)
     runs = runs.json()["workflow_runs"]
     runs = [r for r in runs if r["head_sha"] == pr_sha]
-
     pprint(runs)
+
+    workflows = requests.get(base_url + "/actions/workflows")
+    workflows = workflows.json()["workflows"]
+    workflows = {w["id"]: w["name"] for w in workflows}
+    pprint(workflows)
+
     # actions/workflows/:workflow_id/runs
     # filter check-suites by job
     # for suite in suites.json()["check_suites"]:
