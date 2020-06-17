@@ -30,7 +30,7 @@ def main():
         base_url + "/commits/" + pr_sha + "/check-suites", headers=headers,
     )
 
-    # filter check-suites by job
+    # Filter check-suites by job
     for suite in suites.json()["check_suites"]:
         check_runs = requests.get(
             base_url + f"/check-suites/{suite['id']}/check-runs", headers=headers,
