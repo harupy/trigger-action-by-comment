@@ -31,10 +31,17 @@ def main():
     branch = pr["head"]["label"]
 
     print(branch)
-    suites = requests.get(
-        base_url + "/commits/" + pr_sha + "/check-suites", headers=headers,
-    )
 
+    params = {"branch": branch.split(":")[-1]}
+    runs = requests.get(base_url + "actions/runs", params=params)
+    runs = runs.json()["workflow_runs"]
+
+    pprint(runs)
+
+    run = list(filter(lambda r: r["head_sha"] == pr_sha), runs)[0]
+
+    pprint(run)
+    # actions/workflows/:workflow_id/runs
     # filter check-suites by job
     # for suite in suites.json()["check_suites"]:
     #     check_runs = requests.get(
