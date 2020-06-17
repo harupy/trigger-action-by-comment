@@ -26,7 +26,11 @@ def main():
     }
 
     pr = requests.get(base_url + f"/pulls/{pull_num}")
-    pr_sha = pr.json()["head"]["sha"]
+    pr = pr.json()
+    pr_sha = pr["head"]["sha"]
+    branch = pr["head"]["label"]
+
+    print(branch)
     suites = requests.get(
         base_url + "/commits/" + pr_sha + "/check-suites", headers=headers,
     )
