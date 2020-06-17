@@ -33,7 +33,7 @@ def main():
     print(branch)
 
     params = {"branch": branch.split(":")[-1]}
-    runs = requests.get(base_url + "actions/runs", params=params)
+    runs = requests.get(base_url + "/actions/runs", params=params)
     runs = runs.json()["workflow_runs"]
 
     pprint(runs)
