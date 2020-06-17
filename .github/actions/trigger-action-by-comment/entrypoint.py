@@ -9,7 +9,8 @@ def get_action_input(name):
 
 def main():
     pull_num = get_action_input("pull_number")
-    print(pull_num)
+    comment = get_action_input("comment")
+    print(pull_num, comment)
 
 
 if __name__ == "__main__":

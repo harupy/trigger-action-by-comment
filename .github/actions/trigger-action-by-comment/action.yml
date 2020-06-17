@@ -6,6 +6,9 @@ inputs:
   pull_number:
     description: "A pull request number"
     required: true
+  comment:
+    description: "An issue comment"
+    required: true
 
 runs:
   using: "docker"
