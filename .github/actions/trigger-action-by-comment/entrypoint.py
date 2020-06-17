@@ -39,7 +39,6 @@ def main():
             res = requests.post(
                 base_url + f"/check-suites/{suite['id']}/rerequest", headers=headers,
             )
-            print(res.json())
             print(res.status_code)
 
 

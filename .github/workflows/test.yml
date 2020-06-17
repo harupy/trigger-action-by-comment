@@ -14,8 +14,3 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: echo "test"
-      - uses: ./.github/actions/trigger-action-by-comment
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          pull_number: 1
-          comment: "trigger lint"

@@ -1,6 +1,6 @@
-name: Trigger Action by Comment
+name: Retrigger Action by Comment
 author: harupy
-description: Trigger Action by Comment
+description: Retrigger Action by Comment
 
 inputs:
   token:
