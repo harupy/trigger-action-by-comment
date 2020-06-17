@@ -18,8 +18,9 @@ def get_job_from_comment(comment):
 def filter_check_suites_by_job(suites, job):
     filtered = []
     for suite in suites:
-        res = requests.get(BASE_URL + f"/check-suites/{suite['id']}/check-runs")
-        if any(cr["name"] == job for cr in res.json()["check_runs"]):
+        check_runs = requests.get(BASE_URL + f"/check-suites/{suite['id']}/check-runs")
+        print(check_runs)
+        if any(cr["name"] == job for cr in check_runs.json()["check_runs"]):
             filtered.append(suite)
     return filtered
 
