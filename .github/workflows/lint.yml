@@ -12,4 +12,6 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "lint"
+      - run: |
+          echo "lint"
+          exit 1
