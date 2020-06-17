@@ -44,6 +44,7 @@ def main():
         res = requests.get(
             base_url + f"/check-suites/{suite['id']}/rerequest", headers=headers,
         )
+        print(res.text)
         print(res.status_code)
 
 
