@@ -34,7 +34,7 @@ def main():
 
     base_url = "https://api.github.com/repos/harupy/trigger-action-by-comment"
 
-    pr = requests.get(base_url + f"pulls/{pull_num}")
+    pr = requests.get(base_url + f"/pulls/{pull_num}")
     pr_sha = pr.json()["head"]["sha"]
 
     suites = requests.get(
