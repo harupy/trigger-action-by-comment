@@ -16,5 +16,5 @@ jobs:
       - uses: ./.github/actions/rerun-workflow-by-comment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          pull_number: ${{ github.event.issue.number }}
-          comment: ${{ github.event.comment.body }}
+          pull_number: 4
+          comment: "trigger lint"
