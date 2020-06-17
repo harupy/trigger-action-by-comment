@@ -43,6 +43,11 @@ def main():
     workflows = {w["id"]: w["name"] for w in workflows}
     pprint(workflows)
 
+    for run in runs:
+        if workflows[run["workflow_id"]].lower() == job:
+            res = requests.post(base_url + f"/runs/{run['id']}/rerun")
+            print(res.status_code)
+
     # actions/workflows/:workflow_id/runs
     # filter check-suites by job
     # for suite in suites.json()["check_suites"]:
