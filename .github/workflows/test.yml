@@ -15,6 +15,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/rerun-workflow-by-comment
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_TOKEN }}
           pull_number: 4
           comment: "trigger test"
