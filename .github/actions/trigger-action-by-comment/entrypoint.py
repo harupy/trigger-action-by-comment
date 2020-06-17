@@ -31,10 +31,9 @@ def main():
     suites = requests.get(
         base_url + "/commits/" + pr_sha + "/check-suites", headers=headers,
     )
-    suites = suites.json()["check_suites"]
 
     filtered = []
-    for suite in suites:
+    for suite in suites.json()["check_suites"]:
         check_runs = requests.get(
             base_url + f"/check-suites/{suite['id']}/check-runs", headers=headers,
         )
