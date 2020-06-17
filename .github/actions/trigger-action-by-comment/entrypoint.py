@@ -39,9 +39,8 @@ def main():
         )
         if any(cr["name"] == job for cr in check_runs.json()["check_runs"]):
             filtered.append(suite)
-    return filtered
 
-    print(suites)
+    print(filtered)
 
 
 if __name__ == "__main__":
