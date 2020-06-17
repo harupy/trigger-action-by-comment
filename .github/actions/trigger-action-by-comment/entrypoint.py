@@ -38,7 +38,7 @@ def main():
     pr_sha = pr.json()["head"]["sha"]
 
     suites = requests.get(
-        base_url + "/commits/" + pr_sha + "/check-suites", headers=suites_headers,
+        base_url + "/commits/" + pr_sha + "/check-suites", headers=headers,
     )
     suites = suites.json()["check_suites"]
     suites = filter_check_suites_by_job(suites, job)
