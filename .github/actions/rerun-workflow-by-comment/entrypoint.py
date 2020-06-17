@@ -38,7 +38,7 @@ def main():
 
     pprint(runs)
 
-    run = list(filter(lambda r: r["head_sha"] == pr_sha), runs)[0]
+    run = list(filter(lambda r: r["head_sha"] == pr_sha, runs), runs)[0]
 
     pprint(run)
     # actions/workflows/:workflow_id/runs
