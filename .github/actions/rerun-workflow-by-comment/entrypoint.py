@@ -46,7 +46,7 @@ def main():
     for run in runs:
         if workflows[run["workflow_id"]].lower() == job:
             res = requests.post(
-                base_url + f"/actions/runs/{run['id']}/rerun", header=headers
+                base_url + f"/actions/runs/{run['id']}/rerun", headers=headers
             )
             print(res.json())
             print(res.status_code)
