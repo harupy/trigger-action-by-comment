@@ -35,10 +35,7 @@ def main():
     params = {"branch": branch.split(":")[-1]}
     runs = requests.get(base_url + "/actions/runs", params=params)
     runs = runs.json()["workflow_runs"]
-
-    pprint(runs)
-
-    run = list(filter(lambda r: r["head_sha"] == pr_sha, runs))[0]
+    runs = [r for r in runs if r["head_sha"] == pr_sha]
 
     pprint(run)
     # actions/workflows/:workflow_id/runs
