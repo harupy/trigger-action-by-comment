@@ -9,7 +9,7 @@ def get_action_input(name):
 
 
 def parse_job(comment):
-    return re.search(r"trigger (.+)").group(1)
+    return re.search(r"trigger (.+)", comment).group(1)
 
 
 def filter_check_suites_by_job(suites, job):
