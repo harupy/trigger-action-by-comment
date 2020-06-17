@@ -17,4 +17,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           pull_number: 4
-          comment: "trigger lint"
+          comment: "trigger ci"
