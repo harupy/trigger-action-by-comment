@@ -31,20 +31,15 @@ def main():
     )
 
     # filter check-suites by job
-    filtered = []
     for suite in suites.json()["check_suites"]:
         check_runs = requests.get(
             base_url + f"/check-suites/{suite['id']}/check-runs", headers=headers,
         )
         if any(cr["name"] == job for cr in check_runs.json()["check_runs"]):
-            filtered.append(suite)
-
-    # re-run filtered check-suites
-    for suite in filtered:
-        res = requests.post(
-            base_url + f"/check-suites/{suite['id']}/rerequest", headers=headers,
-        )
-        print(res.status_code)
+            res = requests.post(
+                base_url + f"/check-suites/{suite['id']}/rerequest", headers=headers,
+            )
+            print(res.status_code)
 
 
 if __name__ == "__main__":
