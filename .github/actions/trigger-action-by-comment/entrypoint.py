@@ -41,10 +41,9 @@ def main():
 
     # re-run filtered check-suites
     for suite in filtered:
-        res = requests.get(
+        res = requests.post(
             base_url + f"/check-suites/{suite['id']}/rerequest", headers=headers,
         )
-        print(res.text)
         print(res.status_code)
 
 
