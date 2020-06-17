@@ -21,7 +21,7 @@ def main():
 
     base_url = "https://api.github.com/repos/harupy/trigger-action-by-comment"
     headers = {
-        "Accept": "application/vnd.github.antiope-preview+json",
+        # "Accept": "application/vnd.github.antiope-preview+json",
         "authorization": "Bearer {}".format(token),
     }
 
@@ -45,7 +45,9 @@ def main():
 
     for run in runs:
         if workflows[run["workflow_id"]].lower() == job:
-            res = requests.post(base_url + f"/actions/runs/{run['id']}/rerun")
+            res = requests.post(
+                base_url + f"/actions/runs/{run['id']}/rerun", header=headers
+            )
             print(res.json())
             print(res.status_code)
 
