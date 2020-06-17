@@ -37,7 +37,7 @@ def main():
     runs = runs.json()["workflow_runs"]
     runs = [r for r in runs if r["head_sha"] == pr_sha]
 
-    pprint(run)
+    pprint(runs)
     # actions/workflows/:workflow_id/runs
     # filter check-suites by job
     # for suite in suites.json()["check_suites"]:
